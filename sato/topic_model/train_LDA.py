@@ -1,3 +1,4 @@
+# used from predict.py
 import os
 import sys
 from os.path import join

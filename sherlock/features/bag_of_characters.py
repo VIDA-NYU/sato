@@ -1,3 +1,4 @@
+# used from predict.py
 import string
 import numpy  as np
 from scipy.stats import skew, kurtosis

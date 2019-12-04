@@ -1,3 +1,4 @@
+# used from predict.py
 import math
 import nltk
 import numpy as np

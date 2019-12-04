@@ -1,3 +1,4 @@
+# used from predict.py
 __version__ = '0.7.2'
 
 from typing import List, Optional
