@@ -5,7 +5,7 @@ import json
 import pandas as pd
 import time
 import numpy as np
-import torch 
+import torch
 
 def str2bool(v):
     # convert string to boolean type for argparser input

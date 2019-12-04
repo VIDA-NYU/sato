@@ -7,16 +7,16 @@ import json
 import sys
 import datetime
 import configargparse
-from utils import str2bool, str_or_none, name2dic, get_valid_types
+from sato.utils import str2bool, str_or_none, name2dic, get_valid_types
 import copy
 from sklearn.preprocessing import LabelEncoder
 from tqdm import tqdm
 import pandas as pd
 from tensorboardX import SummaryWriter
-from model.torchcrf import CRF
+from sato.model.torchcrf import CRF
 
-from model import datasets
-from model.models_sherlock import FeatureEncoder, SherlockClassifier, build_sherlock
+from sato.model import datasets
+from sato.model.models_sherlock import FeatureEncoder, SherlockClassifier, build_sherlock
 from sklearn.metrics import classification_report
 
 # =============

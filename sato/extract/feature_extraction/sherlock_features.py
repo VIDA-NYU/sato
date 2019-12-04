@@ -2,7 +2,7 @@ import pandas as pd
 from collections import OrderedDict
 import numpy as np
 import random
-from extract.helpers import utils
+from sato.extract.helpers import utils
 from sherlock.features.bag_of_characters import extract_bag_of_characters_features
 from sherlock.features.bag_of_words      import extract_bag_of_words_features
 from sherlock.features.word_embeddings   import extract_word_embeddings_features

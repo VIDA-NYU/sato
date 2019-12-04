@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
         os.environ['LDA_name'] = args.LDA_name
         # hack to pass in LDA name for extractor
-        from feature_extraction.topic_features_LDA import extract_topic_features
+        from .feature_extraction.topic_features_LDA import extract_topic_features
         from gensim.corpora.dictionary import Dictionary
         from gensim.models.ldamodel import LdaModel
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
         extract_func = extract_topic_features
 
     elif args.features == 'sherlock':
-        from feature_extraction.sherlock_features import extract_sherlock_features
+        from .feature_extraction.sherlock_features import extract_sherlock_features
         feature_name = args.features
         extract_func = extract_sherlock_features
     else:

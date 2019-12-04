@@ -4,7 +4,7 @@ import numpy as np
 import os
 import random
 from os.path import join
-from extract.helpers import utils
+from sato.extract.helpers import utils
 from gensim.corpora.dictionary import Dictionary
 from gensim.models.ldamodel import LdaModel
 from sato.topic_model import train_LDA
