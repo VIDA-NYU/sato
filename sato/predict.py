@@ -6,11 +6,11 @@ os.environ['LDA_name'] = 'num-directstr_thr-0_tn-400'
 
 import pandas as pd
 import numpy as np
-from extract.feature_extraction.topic_features_LDA import extract_topic_features
-from extract.feature_extraction.sherlock_features import extract_sherlock_features
-from utils import get_valid_types
-from model import models_sherlock
-from model.torchcrf import CRF
+from sato.extract.feature_extraction.topic_features_LDA import extract_topic_features
+from sato.extract.feature_extraction.sherlock_features import extract_sherlock_features
+from sato.utils import get_valid_types
+from sato.model import models_sherlock
+from sato.model.torchcrf import CRF
 
 
 TYPENAME = os.environ['TYPENAME']

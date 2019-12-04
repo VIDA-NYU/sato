@@ -20,11 +20,11 @@ import json
 import pandas as pd
 from collections import OrderedDict
 import itertools
-from helpers.utils import canonical_header, long_name_digest
+from sato.extract.helpers.utils import canonical_header, long_name_digest
 from tqdm import tqdm
-from utils import get_valid_types, str_or_none, str2bool
+from sato.utils import get_valid_types, str_or_none, str2bool
 
-from helpers.read_raw_data import get_dfs_by_corpus
+from sato.extract.helpers.read_raw_data import get_dfs_by_corpus
 
 # Get rid of gensim deprecated warning
 if not sys.warnoptions:

@@ -7,8 +7,8 @@ from os.path import join
 from extract.helpers import utils
 from gensim.corpora.dictionary import Dictionary
 from gensim.models.ldamodel import LdaModel
-from topic_model import train_LDA
-from utils import name2dic
+from sato.topic_model import train_LDA
+from sato.utils import name2dic
 
 TYPENAME = os.environ['TYPENAME']
 # objects too large to pass for multiprocessing

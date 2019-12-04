@@ -8,7 +8,7 @@ from typing import List, Dict, Any
 from sklearn.preprocessing import LabelEncoder
 import torch.nn.functional as F
 from os.path import join
-from utils import  name2dic, get_valid_types, load_tmp_df
+from sato.utils import  name2dic, get_valid_types, load_tmp_df
 
 import torch
 from torch.utils.data import Dataset, DataLoader

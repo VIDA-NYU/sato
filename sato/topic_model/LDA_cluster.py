@@ -9,7 +9,7 @@ import json
 from collections import OrderedDict
 from itertools import islice
 from sklearn.cluster import KMeans
-from utils import get_valid_types
+from sato.utils import get_valid_types
 from collections import Counter
 
 

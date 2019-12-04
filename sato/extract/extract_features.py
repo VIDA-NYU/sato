@@ -13,9 +13,9 @@ from multiprocessing import Pool
 from tqdm import tqdm
 import functools
 
-from helpers.read_raw_data import get_filtered_dfs_by_corpus
-from utils import get_valid_types, str_or_none, str2bool
-from helpers.utils import valid_header_iter_gen, count_length_gen
+from sato.extract.helpers.read_raw_data import get_filtered_dfs_by_corpus
+from sato.utils import get_valid_types, str_or_none, str2bool
+from sato.extract.helpers.utils import valid_header_iter_gen, count_length_gen
 # Get rid of gensim deprecated warning
 if not sys.warnoptions:
     import warnings

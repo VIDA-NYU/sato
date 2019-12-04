@@ -6,7 +6,7 @@ import numpy as np
 import math
 
 
-from utils import load_tmp_df, get_valid_types
+from sato.utils import load_tmp_df, get_valid_types
 
 TYPENAME = os.environ['TYPENAME']
 valid_types = get_valid_types(TYPENAME)

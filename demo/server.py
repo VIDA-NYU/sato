@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
-from predict import evaluate
+from sato.predict import evaluate
 
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['csv'])

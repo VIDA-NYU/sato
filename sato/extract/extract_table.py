@@ -10,8 +10,8 @@ import pandas as pd
 from tqdm import tqdm
 from multiprocessing import Pool
 import itertools
-from helpers.utils import long_name_digest, valid_header_iter_gen, count_length_gen
-from helpers.read_raw_data import get_filtered_dfs_by_corpus
+from sato.extract.helpers.utils import long_name_digest, valid_header_iter_gen, count_length_gen
+from sato.extract.helpers.read_raw_data import get_filtered_dfs_by_corpus
 
 
 TYPENAME = os.environ['TYPENAME']

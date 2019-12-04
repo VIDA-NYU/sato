@@ -11,7 +11,7 @@ import nltk
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
-from utils import dic2name
+from sato.utils import dic2name
 
 TYPENAME = os.environ['TYPENAME']
 LDA_CACHE = join('LDA_cache', TYPENAME)

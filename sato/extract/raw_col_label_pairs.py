@@ -16,7 +16,7 @@ path = join(os.environ['BASEPATH'], 'extract', 'out', 'extracted_tables')
 TYPENAME = os.environ['TYPENAME']
 
 MAX_COL_LEN = 500
-from helpers.read_raw_data import get_filtered_dfs_by_corpus
+from sato.extract.helpers.read_raw_data import get_filtered_dfs_by_corpus
 
 
 with open(os.path.join(os.environ['BASEPATH'], 'configs','types.json'), 'r') as typefile:  
