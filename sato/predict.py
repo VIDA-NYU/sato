@@ -3,6 +3,7 @@ from sklearn.preprocessing import LabelEncoder
 import os
 from os.path import join
 os.environ['LDA_name'] = 'num-directstr_thr-0_tn-400'
+os.environ['TYPENAME'] = 'type78'
 
 import pandas as pd
 import numpy as np
