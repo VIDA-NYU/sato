@@ -29,7 +29,7 @@ device = 'cpu'
 feature_group_cols = {}
 sherlock_feature_groups = ['char', 'word', 'par', 'rest']
 for f_g in sherlock_feature_groups:
-    feature_group_cols[f_g] = list(pd.read_csv(join(os.environ['BASEPATH'],
+    feature_group_cols[f_g] = list(pd.read_csv(join(os.environ['BASEPATH'],  # TODO: pkg_resources
                                           'configs', 'feature_groups', 
                                           "{}_col.tsv".format(f_g)),
                                            sep='\t', header=None, 
@@ -48,7 +48,7 @@ classifier = models_sherlock.build_sherlock(sherlock_feature_groups, num_classes
 model = CRF(len(valid_types) , batch_first=True).to(device)
 #model.load_state_dict(torch.load(join(pre_trained_loc, 'model.pt'), map_location=device))
 
-loaded_params = torch.load(join(pre_trained_loc, 'model.pt'), map_location=device)
+loaded_params = torch.load(join(pre_trained_loc, 'model.pt'), map_location=device)  # TODO: pkg_resources
 classifier.load_state_dict(loaded_params['col_classifier'])
 model.load_state_dict(loaded_params['CRF_model'])
 

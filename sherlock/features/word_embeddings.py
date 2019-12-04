@@ -7,7 +7,7 @@ SHERLOCKPATH = os.environ['SHERLOCKPATH']
 
 embedding_loc = os.path.join(SHERLOCKPATH, 'pretrained', 'glove.6B')
 
-word_vectors_f = open(os.path.join(embedding_loc ,'glove.6B.50d.txt'))
+word_vectors_f = open(os.path.join(embedding_loc ,'glove.6B.50d.txt'))  # TODO: pkg_resources
 word_to_embedding = {}
 for l in word_vectors_f:
     term, vector = l.strip().split(' ', 1)

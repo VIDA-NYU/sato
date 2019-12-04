@@ -28,7 +28,7 @@ def train_paragraph_embeddings_features(columns, dim):
     # TRAN PARAGRAPH VECTORS MODEL
     model = Doc2Vec(columns, dm=0, negative=3, workers=8, vector_size=dim, epochs=20, min_count=2, seed=13)
     
-    model_file = os.path.join(SHERLOCKPATH, 'pretrained', 'par_vec_trained_{}.pkl'.format(dim))
+    model_file = os.path.join(SHERLOCKPATH, 'pretrained', 'par_vec_trained_{}.pkl'.format(dim))  # TODO: pkg_resources
     model.save(model_file)
     model.delete_temporary_training_data(keep_doctags_vectors=True, keep_inference=True)
     
@@ -40,7 +40,7 @@ def infer_paragraph_embeddings_features(data, dim):
     embeddings = []
     
     # INFER PARAGRAPH VECTORS
-    model = Doc2Vec.load(os.path.join(SHERLOCKPATH, 'pretrained', 'par_vec_trained_{}.pkl'.format(dim))) 
+    model = Doc2Vec.load(os.path.join(SHERLOCKPATH, 'pretrained', 'par_vec_trained_{}.pkl'.format(dim)))  # TODO: pkg_resources
 
     f = OrderedDict()
     

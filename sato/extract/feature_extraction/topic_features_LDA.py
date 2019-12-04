@@ -13,7 +13,7 @@ from sato.utils import name2dic
 TYPENAME = os.environ['TYPENAME']
 # objects too large to pass for multiprocessing
 LDA_name = os.environ['LDA_name']
-model_loc = join(os.environ['BASEPATH'], 'topic_model', "LDA_cache", TYPENAME)
+model_loc = join(os.environ['BASEPATH'], 'topic_model', "LDA_cache", TYPENAME)  # TODO: looks RW?
 LDA = LdaModel.load(join(model_loc,'model_{}'.format(LDA_name)))
 Dic = Dictionary.load(join(model_loc,'dictionary_{}'.format(LDA_name)))
 
