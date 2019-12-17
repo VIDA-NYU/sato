@@ -3,15 +3,23 @@ image: python:3.7
 test_locked:
   stage: test
   script:
+  - date
   - pip install pipenv
   - pipenv install --deploy --system --dev
+  - date
   - pip install --no-deps -e .
   - python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+  - date
   - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
+  - date
 
 test_current:
   stage: test
   script:
+  - date
   - pip install -e ./
+  - date
   - python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+  - date
   - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
+  - date
