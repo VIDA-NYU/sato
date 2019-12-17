@@ -1,6 +1,6 @@
 from time import time
 import os
-from os.path import join
+from os.path import dirname, join
 import numpy as np
 import json
 import sys
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     # load data through table instance 
     multi_tag = '_multi-col' if args.multi_col_only else ''
 
-    train_test_path = join(os.environ['BASEPATH'], 'extract', 'out', 'train_test_split')
+    train_test_path = join(dirname(dirname(__file__)), 'extract', 'out', 'train_test_split')
     train_list, test_list = [], []
 
     for corpus in corpus_list:
@@ -274,7 +274,7 @@ if __name__ == "__main__":
 
         torch.save(classifier.state_dict(),join(logging_path, "model.pt"))
         # save as pretrained model
-        pre_trained_loc = join(os.environ['BASEPATH'],'model','pre_trained_sherlock', TYPENAME)
+        pre_trained_loc = join(dirname(__file__),'pre_trained_sherlock', TYPENAME)
         if not os.path.exists(pre_trained_loc):
                 os.makedirs(pre_trained_loc)
 
@@ -289,7 +289,7 @@ if __name__ == "__main__":
     elif args.mode == 'eval':
         # load pre-trained model
         result_list = []
-        model_loc = join(os.environ['BASEPATH'],'model','pre_trained_sherlock', TYPENAME)
+        model_loc = join(dirname(__file__),'pre_trained_sherlock', TYPENAME)
         for model_path in args.model_list:
             classifier.load_state_dict(torch.load(join(model_loc, model_path), map_location=device))
             classifier.eval()

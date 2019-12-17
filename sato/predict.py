@@ -2,7 +2,7 @@
 import torch
 from sklearn.preprocessing import LabelEncoder
 import os
-from os.path import join
+from os.path import dirname, join
 os.environ['LDA_name'] = 'num-directstr_thr-0_tn-400'
 os.environ['TYPENAME'] = 'type78'
 
@@ -30,10 +30,10 @@ device = 'cpu'
 feature_group_cols = {}
 sherlock_feature_groups = ['char', 'word', 'par', 'rest']
 for f_g in sherlock_feature_groups:
-    feature_group_cols[f_g] = list(pd.read_csv(join(os.environ['BASEPATH'],  # TODO: pkg_resources
-                                          'configs', 'feature_groups', 
+    feature_group_cols[f_g] = list(pd.read_csv(join(dirname(__file__),
+                                          'configs', 'feature_groups',
                                           "{}_col.tsv".format(f_g)),
-                                           sep='\t', header=None, 
+                                           sep='\t', header=None,
                                            index_col=0)[1])
 
 

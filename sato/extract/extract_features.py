@@ -4,7 +4,7 @@ Only extract columns that has a valid header from ./headers/{}_header_valid.csv
 '''
 import os
 import sys
-from os.path import join
+from os.path import dirname, join
 import argparse
 import pandas as pd
 import time
@@ -23,7 +23,7 @@ if not sys.warnoptions:
 
 TYPENAME = os.environ['TYPENAME']
 valid_types = get_valid_types(TYPENAME)
-valid_header_dir = os.path.join(os.environ['BASEPATH'], 'extract', 'out', 'headers', TYPENAME)
+valid_header_dir = os.path.join(dirname(__file__), 'out', 'headers', TYPENAME)
 
 
 if __name__ == "__main__": 
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     corpus = args.corpus_chunk
 
     # Create features directory
-    features_dir = join(os.environ['BASEPATH'], 'extract', 'out', 'features', TYPENAME)
+    features_dir = join(dirname(__file__), 'out', 'features', TYPENAME)
     if not os.path.exists(features_dir):
         os.mkdir(features_dir)
 

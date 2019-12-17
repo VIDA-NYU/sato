@@ -14,7 +14,7 @@ field_names     The list of field names. numbers are index in the corresponsing 
 
 import os
 import sys
-from os.path import join
+from os.path import dirname, join
 import argparse
 import json
 import pandas as pd
@@ -86,7 +86,7 @@ corpus = args.corpus
 
 
 # Create features directory
-header_path = join(os.environ['BASEPATH'], 'extract', 'out', 'headers', TYPENAME)
+header_path = join(dirname(__file__), 'out', 'headers', TYPENAME)
 if not os.path.exists(header_path):
     os.mkdir(header_path)
 

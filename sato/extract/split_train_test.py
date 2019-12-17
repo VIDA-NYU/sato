@@ -1,13 +1,13 @@
 import pandas as pd
 import os
 import numpy as np
-from os.path import join
+from os.path import dirname, join
 from sklearn.model_selection import train_test_split
 import json
 import configargparse
 
 TYPENAME = os.environ['TYPENAME']
-header_path = join(os.environ['BASEPATH'], 'extract/out/headers', TYPENAME)
+header_path = join(dirname(__file__), 'out/headers', TYPENAME)
 
 
 tmp_path = 'out/train_test_split'

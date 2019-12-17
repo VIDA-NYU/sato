@@ -1,6 +1,6 @@
 import pandas as pd
 import os 
-from os.path import join
+from os.path import dirname, join
 import json
 import numpy as np
 import math
@@ -14,7 +14,7 @@ L = len(valid_types)
 
 
 tmp_path = join(os.environ['BASEPATH'], 'tmp')
-path = join(os.environ['BASEPATH'],'extract', 'out', 'headers', TYPENAME)
+path = join(dirname(__file__), 'out', 'headers', TYPENAME)
 
 
 

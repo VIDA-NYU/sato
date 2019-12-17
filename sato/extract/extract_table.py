@@ -3,7 +3,7 @@ Save the extracted tables to file by iterating through the valid header file
 '''
 import os
 import sys
-from os.path import join
+from os.path import dirname, join
 import argparse
 import math
 import pandas as pd
@@ -15,7 +15,7 @@ from sato.extract.helpers.read_raw_data import get_filtered_dfs_by_corpus
 
 
 TYPENAME = os.environ['TYPENAME']
-valid_header_dir = os.path.join(os.environ['BASEPATH'], 'extract', 'out', 'headers', TYPENAME)
+valid_header_dir = os.path.join(dirname(__file__), 'out', 'headers', TYPENAME)
 
 
 extrated_table_path = join(os.environ['EXTRACTPATH'], 'out', 'extracted_tables', TYPENAME)

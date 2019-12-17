@@ -1,7 +1,7 @@
 # used from predict.py
 import argparse
 import os
-from os.path import join
+from os.path import dirname, join
 import json
 import pandas as pd
 import time
@@ -39,7 +39,7 @@ def name2dic(s):
 
 def get_valid_types(TYPENAME):
 
-    with open(join(os.environ['BASEPATH'], 'configs', 'types.json'), 'r') as typefile:  # TODO: pkg_resources
+    with open(join(dirname(__file__), 'configs', 'types.json'), 'r') as typefile:
         valid_types = json.load(typefile)[TYPENAME]
     return valid_types
 

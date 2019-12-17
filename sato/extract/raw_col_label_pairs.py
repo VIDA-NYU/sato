@@ -1,5 +1,5 @@
 import os
-from os.path import join
+from os.path import dirname, join
 import pandas as pd
 import json
 import re
@@ -12,14 +12,14 @@ import argparse
 # temp hack of setting path
 #os.environ['BASEPATH'] = '/home/dan_z/col2type'
 
-path = join(os.environ['BASEPATH'], 'extract', 'out', 'extracted_tables')
+path = join(dirname(__file__), 'out', 'extracted_tables')
 TYPENAME = os.environ['TYPENAME']
 
 MAX_COL_LEN = 500
 from sato.extract.helpers.read_raw_data import get_filtered_dfs_by_corpus
 
 
-with open(os.path.join(os.environ['BASEPATH'], 'configs','types.json'), 'r') as typefile:  
+with open(os.path.join(dirname(dirname(__file__)), 'configs','types.json'), 'r') as typefile:
     valid_types = json.load(typefile)[TYPENAME]
 
 
@@ -149,7 +149,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
 
-    out_path = join(os.environ['BASEPATH'], 'extract', 'out', 'bert_input')
+    out_path = join(dirname(__file__), 'out', 'bert_input')
     if not os.path.exists(out_path):
         os.mkdir(out_path)
 

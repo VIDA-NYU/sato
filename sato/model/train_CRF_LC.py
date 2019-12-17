@@ -1,5 +1,5 @@
 import os
-from os.path import join
+from os.path import dirname, join
 import time
 import pandas as pd
 import numpy as np
@@ -119,7 +119,7 @@ else:
     topic_dim = None
 
 ## load single column model
-pre_trained_sherlock_loc = join(os.environ['BASEPATH'],'model','pre_trained_sherlock', TYPENAME)
+pre_trained_sherlock_loc = join(dirname(__file__),'pre_trained_sherlock', TYPENAME)
 classifier = models_sherlock.build_sherlock(sherlock_feature_groups, num_classes=len(valid_types), topic_dim=topic_dim, dropout_ratio=dropout_rate).to(device)
 
 # fix sherlock parameters 
@@ -139,7 +139,7 @@ if init_matrix_path is None:
     L = len(valid_types)
     init_transition = prng.rand(L, L)
 else:
-    init_matrix_loc = join(os.environ['BASEPATH'], 'model', 'co_occur_matrix')
+    init_matrix_loc = join(dirname(__file__), 'co_occur_matrix')
     matrix_co = np.load(join(init_matrix_loc, init_matrix_path))
     init_transition = np.log(matrix_co+1)
 
@@ -209,7 +209,7 @@ multi_tag = '_multi-col' if args.multi_col_only else ''
 print('Loading data for {}{}'.format(corpus_list, multi_tag))
 start_loading = time.time()
 
-train_test_path = join(os.environ['BASEPATH'], 'extract', 'out', 'train_test_split')
+train_test_path = join(dirname(dirname(__file__)), 'extract', 'out', 'train_test_split')
 train_list, test_list = [], []
 
 for corpus in corpus_list:
@@ -430,7 +430,7 @@ if args.mode == 'train':
                 'CRF_model': model.state_dict()}
                 ,join(logging_path,"model.pt"))
 
-    pre_trained_loc = join(os.environ['BASEPATH'],'model','pre_trained_CRF', TYPENAME)
+    pre_trained_loc = join(dirname(__file__),'pre_trained_CRF', TYPENAME)
     if not os.path.exists(pre_trained_loc):
             os.makedirs(pre_trained_loc)
 
@@ -450,7 +450,7 @@ elif args.mode=='eval':
     result_list = []
     for model_path in args.model_list:
 
-        model_loc = join(os.environ['BASEPATH'],'model','pre_trained_CRF', TYPENAME)
+        model_loc = join(dirname(__file__),'pre_trained_CRF', TYPENAME)
         loaded_params = torch.load(join(model_loc, model_path), map_location=device)
         classifier.load_state_dict(loaded_params['col_classifier'])
         model.load_state_dict(loaded_params['CRF_model'])

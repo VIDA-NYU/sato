@@ -4,7 +4,7 @@ from collections import OrderedDict
 import numpy as np
 import os
 import random
-from os.path import join
+from os.path import dirname, join
 from sato.extract.helpers import utils
 from gensim.corpora.dictionary import Dictionary
 from gensim.models.ldamodel import LdaModel
@@ -14,7 +14,7 @@ from sato.utils import name2dic
 TYPENAME = os.environ['TYPENAME']
 # objects too large to pass for multiprocessing
 LDA_name = os.environ['LDA_name']
-model_loc = join(os.environ['BASEPATH'], 'topic_model', "LDA_cache", TYPENAME)  # TODO: looks RW?
+model_loc = join(dirname(dirname(__file__)), 'topic_model', "LDA_cache", TYPENAME)
 LDA = LdaModel.load(join(model_loc,'model_{}'.format(LDA_name)))
 Dic = Dictionary.load(join(model_loc,'dictionary_{}'.format(LDA_name)))
 

@@ -7,7 +7,7 @@ import pandas as pd
 from typing import List, Dict, Any
 from sklearn.preprocessing import LabelEncoder
 import torch.nn.functional as F
-from os.path import join
+from os.path import dirname, join
 from sato.utils import  name2dic, get_valid_types, load_tmp_df
 
 import torch
@@ -22,8 +22,8 @@ SEED = 100
 TYPENAME = os.environ['TYPENAME']
 valid_types = get_valid_types(TYPENAME)
 
-header_path = join(os.environ['BASEPATH'], 'extract', 'out', 'headers', TYPENAME)
-feature_path = join(os.environ['BASEPATH'], 'extract', 'out', 'features', TYPENAME)
+header_path = join(dirname(dirname(__file__)), 'extract', 'out', 'headers', TYPENAME)
+feature_path = join(dirname(dirname(__file__)), 'extract', 'out', 'features', TYPENAME)
 
 # load column headers
 feature_group_cols = {}
