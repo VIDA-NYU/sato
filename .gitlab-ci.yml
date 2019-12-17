@@ -1,0 +1,15 @@
+image: python:3.7
+
+test_locked:
+  stage: test
+  script:
+  - pip install pipenv
+  - pipenv install --deploy --system --dev
+  - pip install --no-deps -e .
+  - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
+
+test_current:
+  stage: test
+  script:
+  - pip install -e ./
+  - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
