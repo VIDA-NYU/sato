@@ -1,0 +1,13 @@
+sherlock/pretrained/NN_model_multiinput_final_val.json filter=lfs diff=lfs merge=lfs -text
+sherlock/pretrained/par_vec_trained_400.pkl.docvecs.vectors_docs.npy filter=lfs diff=lfs merge=lfs -text
+sherlock/pretrained/par_vec_trained_400.pkl filter=lfs diff=lfs merge=lfs -text
+sherlock/pretrained/glove.6B/glove.6B.100d.txt filter=lfs diff=lfs merge=lfs -text
+sherlock/pretrained/glove.6B/glove.6B.50d.txt filter=lfs diff=lfs merge=lfs -text
+sherlock/pretrained/glove.6B/glove.6B.200d.txt filter=lfs diff=lfs merge=lfs -text
+sherlock/pretrained/NN_weights_multiinput_final_val.h5 filter=lfs diff=lfs merge=lfs -text
+sato/topic_model/LDA_cache/type78/model_num-directstr_thr-0_tn-400.state filter=lfs diff=lfs merge=lfs -text
+sato/topic_model/LDA_cache/type78/model_num-directstr_thr-0_tn-400.state.sstats.npy filter=lfs diff=lfs merge=lfs -text
+sato/topic_model/LDA_cache/type78/dictionary_num-directstr_thr-0_tn-400 filter=lfs diff=lfs merge=lfs -text
+sato/topic_model/LDA_cache/type78/model_num-directstr_thr-0_tn-400 filter=lfs diff=lfs merge=lfs -text
+sato/topic_model/LDA_cache/type78/model_num-directstr_thr-0_tn-400.expElogbeta.npy filter=lfs diff=lfs merge=lfs -text
+sato/topic_model/LDA_cache/type78/model_num-directstr_thr-0_tn-400.id2word filter=lfs diff=lfs merge=lfs -text

@@ -1,6 +1,2 @@
-
 *.pyc
 results/
-sherlock/pretrained/
-tmp/
-topic_model/LDA_cache/
