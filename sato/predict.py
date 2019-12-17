@@ -22,7 +22,7 @@ label_enc.fit(valid_types)
 
 MAX_COL_COUNT = 6
 topic_dim = 400
-pre_trained_loc = './pretrained_sato'
+pre_trained_loc = join(dirname(__file__), 'pretrained_sato')
 device = 'cpu'
 
 
