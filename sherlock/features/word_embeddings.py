@@ -2,9 +2,10 @@
 import numpy  as np
 import pandas as pd
 import os
+from os.path import dirname
 from scipy       import stats
 from collections import OrderedDict
-SHERLOCKPATH = os.environ['SHERLOCKPATH']
+SHERLOCKPATH = dirname(dirname(__file__))
 
 embedding_loc = os.path.join(SHERLOCKPATH, 'pretrained', 'glove.6B')
 

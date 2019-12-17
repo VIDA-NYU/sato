@@ -3,10 +3,11 @@ import numpy  as np
 import pandas as pd
 import random
 import os
+from os.path import dirname
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from collections import OrderedDict
 
-SHERLOCKPATH = os.environ['SHERLOCKPATH']
+SHERLOCKPATH = dirname(dirname(__file__))
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
 
