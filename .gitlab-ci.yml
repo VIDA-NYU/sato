@@ -6,10 +6,12 @@ test_locked:
   - pip install pipenv
   - pipenv install --deploy --system --dev
   - pip install --no-deps -e .
+  - python -c "import nltk; nltk.download('punkt')"
   - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
 
 test_current:
   stage: test
   script:
   - pip install -e ./
+  - python -c "import nltk; nltk.download('punkt')"
   - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
