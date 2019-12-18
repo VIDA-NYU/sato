@@ -20,7 +20,6 @@ valid_types = get_valid_types(TYPENAME)
 label_enc = LabelEncoder()
 label_enc.fit(valid_types)
 
-MAX_COL_COUNT = 6
 topic_dim = 400
 pre_trained_loc = join(dirname(__file__), 'pretrained_sato')
 device = 'cpu'
@@ -66,18 +65,26 @@ def extract(df):
     # topic vectors
     topic_features = extract_topic_features(df_dic)
     topic_vec = pad_vec(topic_features.loc[0,'table_topic'])
-    feature_dic['topic'] = torch.FloatTensor(np.vstack((np.tile(topic_vec,(n,1)), np.zeros((MAX_COL_COUNT - n, topic_dim)))))
+    feature_dic['topic'] = torch.FloatTensor(
+        #np.vstack((
+        #    np.tile(topic_vec, (n, 1)),
+        #    np.zeros((MAX_COL_COUNT - n,, topic_dim)),
+        #))
+        np.tile(topic_vec, (n, 1))
+    )
 
 
     # sherlock vectors
     sherlock_features = extract_sherlock_features(df_dic)
     for f_g in feature_group_cols:
         temp = sherlock_features[feature_group_cols[f_g]].to_numpy()
-        temp = np.vstack((temp, np.zeros((MAX_COL_COUNT - n, temp.shape[1])))).astype('float')
+        #temp = np.vstack((temp, np.zeros((MAX_COL_COUNT - n, temp.shape[1])))).astype('float')
+        temp = temp.astype('float')
         feature_dic[f_g] = torch.FloatTensor(temp)
 
     # dictionary of features, labels, masks
-    return feature_dic, np.zeros(MAX_COL_COUNT), torch.tensor([1]*n + [0]*(MAX_COL_COUNT-n), dtype=torch.uint8)
+    #return feature_dic, np.zeros(n), torch.tensor([1]*n + [0]*(MAX_COL_COUNT-n), dtype=torch.uint8)
+    return feature_dic, np.zeros(n), torch.tensor([1]*n, dtype=torch.uint8)
 
 
 
@@ -85,8 +92,10 @@ def evaluate(df):
 
     feature_dic, labels, mask = extract(df)
 
-    emissions = classifier(feature_dic).view(1, MAX_COL_COUNT, -1)
-    mask = mask.view(1, MAX_COL_COUNT)
+    #emissions = classifier(feature_dic).view(1, MAX_COL_COUNT, -1)
+    emissions = classifier(feature_dic).view(1, df.shape[1], -1)
+    #mask = mask.view(1, MAX_COL_COUNT)
+    mask = mask.view(1, df.shape[1])
     pred = model.decode(emissions, mask)[0]
 
     return label_enc.inverse_transform(pred)
