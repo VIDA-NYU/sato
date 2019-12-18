@@ -10,7 +10,7 @@ test_locked:
   - pip install --no-deps -e .
   - python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
   - date
-  - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
+  - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=list(evaluate(df)); print(res); assert res==['name', 'location', 'status', 'region']"
   - date
 
 test_current:
@@ -21,5 +21,5 @@ test_current:
   - date
   - python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
   - date
-  - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=evaluate(df); print(res); assert res==[]"
+  - WD=$(pwd) && cd /tmp && python3 -c "import pandas; df=pandas.read_csv('$WD/demo/uploads/theaters.csv'); from sato.predict import evaluate; res=list(evaluate(df)); print(res); assert res==['name', 'location', 'status', 'region']"
   - date
