@@ -16,8 +16,6 @@ req = [
     'scipy',
     'tqdm',
     'torch',
-    'Flask',
-    'Werkzeug',
     'ConfigArgParse',
     'tensorboardX',
 ]

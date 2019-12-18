@@ -15,8 +15,6 @@ scikit-learn = "*"
 scipy = "*"
 tqdm = "*"
 torch = "*"
-Flask = "*"
-Werkzeug = "*"
 ConfigArgParse = "*"
 tensorboardX = "*"
 
