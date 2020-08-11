@@ -30,6 +30,7 @@ def run_predict(count, src):
                 if rows > count:
                     df = df.sample(n=count, random_state=1)
                 labels = evaluate(df)
+                print(filename)
                 for i in range(len(df.columns)):
                     print('%s\t%s' % (df.columns[i], labels[i]))
         except Exception as ex:
