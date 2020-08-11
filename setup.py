@@ -18,6 +18,7 @@ req = [
     'torch',
     'ConfigArgParse',
     'tensorboardX',
+    'Click'
 ]
 with io.open('README.rst', encoding='utf-8') as fp:
     description = fp.read()
@@ -64,6 +65,11 @@ setup(name='sato',
       long_description=description,
       license='Apache-2.0',
       keywords=['sato', 'type', 'semantic', 'table', 'data'],
+      entry_points={
+          'console_scripts': [
+              'sato = sato.cli:cli',
+          ]
+      },
       classifiers=[
           'Development Status :: 4 - Beta',
           'Intended Audience :: Science/Research',
