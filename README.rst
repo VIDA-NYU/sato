@@ -11,12 +11,12 @@ Above: Sato architecture. Sato's hybrid architecture consists of two basic modul
 What is Sato useful for?
 ------------------------
 
-Myriad data preparation and information retrieval tasks including data cleaning, integration, discovery and search rely on the ability to accurately detect data column types. Schema matching for data integration leverages data types to find correspondences between data columns across tables. Similarly, data discovery benefits from detecting types of data columns in order to return semantically relevant results for user queries. Recognizing the semantics of table values helps aggregate information from multiple tabular data sources. Search engines also rely on the detection of semantically relevant column names to extend support to tables. Natural language based query interfaces for structured data can also benefit from semantic type detection.
+Myriad data preparation and information retrieval tasks, including data cleaning, integration, discovery and search rely on the ability to accurately detect data column types. Schema matching for data integration leverages data types to find correspondences between data columns across tables. Similarly, data discovery benefits from detecting types of data columns in order to return semantically relevant results for user queries. Recognizing the semantics of table values helps aggregate information from multiple tabular data sources. Search engines also rely on the detection of semantically relevant column names to extend support to tables. Natural language based query interfaces for structured data can also benefit from semantic type detection.
 
 Demo
 ----
 
-We set up a simple online `demo <http://18.191.96.23:5000/>`__ where users can upload small tables and get semantic predictions for column types.
+We set up a simple online `demo <http://18.191.96.23:5000/>`__ where you can upload small tables and get semantic predictions for column types.
 
 ..  image:: https://raw.githubusercontent.com/VIDA-NYU/sato/master/demo/screenshots/1.png
 
