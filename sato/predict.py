@@ -80,6 +80,7 @@ def extract(df):
         temp = sherlock_features[feature_group_cols[f_g]].to_numpy()
         #temp = np.vstack((temp, np.zeros((MAX_COL_COUNT - n, temp.shape[1])))).astype('float')
         temp = temp.astype('float')
+        temp = np.nan_to_num(temp)
         feature_dic[f_g] = torch.FloatTensor(temp)
 
     # dictionary of features, labels, masks
